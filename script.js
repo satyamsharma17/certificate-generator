@@ -6,6 +6,7 @@ const positionInput = document.getElementById('position')
 const dateInput = document.getElementById('date')
 const downloadBtn = document.getElementById('download-btn')
 
+// Inserting Certificate Image
 const image = new Image()
 image.src = 'certificate.jpg'
 image.onload = function (){
@@ -13,17 +14,18 @@ image.onload = function (){
 }
 
 function drawImage() {
-	ctx.drawImage(image, 20, 0, canvas.width, canvas.height)
-	ctx.font = '20px monotype corsiva'
+	ctx.drawImage(image, 20, 0, canvas.width, canvas.height) //Positioning certificate image
+	ctx.font = '20px monotype corsiva' //text size,font
 	ctx.fillStyle = 'black'
 
+// Positioning the Text
 	ctx.fillText(nameInput.value, 245, 260)
-	
-    ctx.fillText(contestInput.value, 305, 310)
 
-	ctx.fillText(positionInput.value, 470, 285)
+    ctx.fillText(contestInput.value, 305, 313)
 
-    ctx.fillText(dateInput.value, 265, 395)
+	ctx.fillText(positionInput.value, 470, 289)
+
+    ctx.fillText(dateInput.value, 265, 399)
 
 }
 
@@ -43,25 +45,27 @@ dateInput.addEventListener('input', function () {
 	drawImage()
 })
 
+//Download as JPG
 downloadBtn.addEventListener('click', function () {
 	downloadBtn.href = canvas.toDataURL('image/jpg')
 	downloadBtn.href = canvas.toDataURL('image/pdf')
 	downloadBtn.download = 'Certificate - ' + nameInput.value
 })
 
+// Download as PDF
 window.onload = function () {
     document.getElementById("download")
         .addEventListener("click", () => {
             const invoice = this.document.getElementById("canvas");
             console.log(invoice);
             console.log(window);
-            var opt = {
+            var pdf = {
                 margin: 0.5,
                 filename: 'cerficate.pdf',
                 image: { type: 'jpeg', quality: 1 },
                 html2canvas: { scale: 1 },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
             };
-            html2pdf().from(invoice).set(opt).save();
+            html2pdf().from(invoice).set(pdf).save();
         })
 }

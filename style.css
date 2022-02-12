@@ -1,6 +1,4 @@
-/*
-Basic input element using psuedo classes
-*/
+  @import url('http://fonts.cdnfonts.com/css/cream-candy');
 
 html {
   font-family: "Lora", sans-serif;
@@ -10,12 +8,19 @@ html {
 body {
   margin: 2%;
   background-image: linear-gradient(#e7fae4, #e7d0da);
+  border: 4px solid #333;
+  padding: 3%;
+  border-radius: 10px;
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 9rem;
   margin-bottom: 2.5%;
   text-align: center;
+  font-family: 'Cream Candy', sans-serif;
+  color: #001a4d;
+  margin-top: 1.5%;
+
 }
 
 canvas {
@@ -27,34 +32,58 @@ form {
   height: auto;
   margin-left: 20%;
   margin-right: 20%;
-  border: 2px solid #333;
-  padding: 3%;
-  border-radius: 10px;
 }
 
 div {
   display: center;
   text-align: center;
 }
-
-input,
-span,
-label {
+span{
+  font-family: 'times new roman', sans-serif;
+  display: block;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+  color: #001a4d;
+}
+input,label {
   font-family: "Ubuntu", sans-serif;
   display: block;
   padding: 5px;
   border: none;
-  font-size: 22px;
+  font-size: 20px;
+  color: #001a4d;
 }
 
 button {
   padding: 1%;
   border-radius: 10px;
   text-decoration: none;
+  background-color:  #001233;
+}
+.button:hover {
+  transform: translateY(-3px);
 }
 
-a {
+.button:active {
+  transform: translateY(0px);
+}
+
+
+#download{
   text-decoration: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight:bold;
+}
+
+#download-btn {
+  text-decoration: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight:bold;
 }
 
 input:focus {
@@ -81,8 +110,8 @@ input.question + label {
   white-space: nowrap;
   padding: 0;
   margin: 0;
-  width: 30%;
-  border-top: 1px solid red;
+  width: 80%;
+  border-top: 1px solid #001233;
   -webkit-transition: width 0.4s ease;
   transition: width 0.4s ease;
   height: 0px;
@@ -121,33 +150,6 @@ input.question + label > span {
   z-index: -1;
   -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-}
-
-input[type="submit"] {
-  -webkit-transition: opacity 0.2s ease, background 0.2s ease;
-  transition: opacity 0.2s ease, background 0.2s ease;
-  display: block;
-  opacity: 0;
-  margin: 10px 0 0 0;
-  padding: 10px;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background: #eee;
-}
-
-input[type="submit"]:active {
-  background: #999;
-}
-
-input.question:valid ~ input[type="submit"] {
-  -webkit-animation: appear 1s forwards;
-  animation: appear 1s forwards;
-}
-
-input.question:invalid ~ input[type="submit"] {
-  display: none;
 }
 
 @-webkit-keyframes appear {
